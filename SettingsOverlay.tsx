@@ -130,17 +130,35 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, c
                       placeholder="ex: hotel-beta"
                       className="flex-1 bg-black border border-white/20 rounded p-3 text-white focus:border-[var(--primary-accent)] outline-none font-mono"
                     />
-                    <select 
-                      onChange={(e) => setFormData({...formData, id: e.target.value})}
-                      className="bg-black border border-white/20 rounded p-3 text-white focus:border-[var(--primary-accent)] outline-none text-xs w-24"
-                      value=""
-                    >
-                       <option value="" disabled>Trocar</option>
-                       <option value="alpha-plaza">Alpha</option>
-                       <option value="demo-hotel">Demo</option>
-                    </select>
                   </div>
-                  <p className="text-[10px] text-gray-500 mt-1">Digite um novo ID para trocar de hotel.</p>
+                </div>
+
+                <div>
+                  <label className="block text-xs text-[var(--primary-accent)] uppercase mb-1">COR DO TEMA (GLOBAL)</label>
+                  <div className="flex gap-2 items-center">
+                    <input 
+                      type="color"
+                      value={formData.primaryColor || '#D4AF37'}
+                      onChange={(e) => {
+                        const newColor = e.target.value;
+                        setFormData({ ...formData, primaryColor: newColor });
+                        document.documentElement.style.setProperty('--primary', newColor);
+                        document.documentElement.style.setProperty('--primary-accent', newColor);
+                      }}
+                      className="h-12 w-16 bg-black border border-white/20 rounded cursor-pointer p-1"
+                    />
+                    <input 
+                      type="text"
+                      value={formData.primaryColor || '#D4AF37'}
+                      onChange={(e) => {
+                        const newColor = e.target.value;
+                        setFormData({ ...formData, primaryColor: newColor });
+                        document.documentElement.style.setProperty('--primary', newColor);
+                        document.documentElement.style.setProperty('--primary-accent', newColor);
+                      }}
+                      className="flex-1 bg-black border border-white/20 rounded p-3 text-white focus:border-[var(--primary-accent)] outline-none font-mono uppercase"
+                    />
+                  </div>
                 </div>
 
                 <div>

@@ -23,9 +23,9 @@ const TermsScreen: React.FC = () => {
       <div className="fixed top-0 left-0 w-full p-6 z-50 bg-gradient-to-b from-[#050505] to-transparent pointer-events-none">
         <button 
           onClick={handleBack}
-          className="pointer-events-auto flex items-center gap-2 text-[var(--primary-accent)] hover:text-white transition-colors uppercase tracking-widest text-xs font-bold group"
+          className="pointer-events-auto flex items-center gap-2 text-[var(--primary)] hover:text-white transition-colors uppercase tracking-widest text-xs font-bold group"
         >
-          <div className="p-2 rounded-full border border-[var(--primary-accent)]/30 group-hover:border-[var(--primary-accent)] group-hover:bg-[var(--primary-accent)] group-hover:text-black transition-all">
+          <div className="p-2 rounded-full border border-[var(--primary)]/30 group-hover:border-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-black transition-all">
             <ArrowLeft size={16} />
           </div>
           <span>Voltar</span>
@@ -37,7 +37,7 @@ const TermsScreen: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         className="max-w-2xl w-full bg-[#1a1a1a] border border-white/10 rounded-2xl p-8 shadow-2xl"
       >
-        <h1 className="text-2xl font-bold text-[var(--primary-accent)] mb-6 tracking-widest uppercase text-center">
+        <h1 className="text-2xl font-bold text-[var(--primary)] mb-6 tracking-widest uppercase text-center">
           Termos e Condições
         </h1>
         
@@ -46,8 +46,8 @@ const TermsScreen: React.FC = () => {
             Bem-vindo ao sistema de Check-in Digital. Ao utilizar esta plataforma, você concorda com as seguintes condições de uso e privacidade.
           </p>
 
-          <div className="p-6 bg-black/50 border border-[var(--primary-accent)]/30 rounded-lg">
-            <h2 className="text-[var(--primary-accent)] font-bold mb-2 uppercase tracking-wider text-xs">
+          <div className="p-6 bg-black/50 border border-[var(--primary)]/30 rounded-lg">
+            <h2 className="text-[var(--primary)] font-bold mb-2 uppercase tracking-wider text-xs">
               Cláusula de Não-Armazenamento
             </h2>
             <p className="font-medium text-white">

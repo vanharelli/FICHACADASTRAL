@@ -59,6 +59,17 @@ export const HotelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           };
           setCurrentHotel(defaultWithDate);
           saveHotelToDB(defaultWithDate); // Seed default
+        } else if (id === 'demo-hotel') {
+          const demoConfig: HotelConfig = {
+            ...DEFAULT_HOTEL,
+            id: 'demo-hotel',
+            name: 'Demo Hotel',
+            subtitle: 'Demonstração do Sistema',
+            primaryColor: '#D4AF37', // Gold
+            createdAt: new Date().toISOString()
+          };
+          setCurrentHotel(demoConfig);
+          saveHotelToDB(demoConfig);
         } else {
           // Auto-create template for new IDs
           const newHotel: HotelConfig = {
@@ -88,6 +99,7 @@ export const HotelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     // Live update CSS variable
     if (config.primaryColor) {
       document.documentElement.style.setProperty('--primary-accent', config.primaryColor);
+      document.documentElement.style.setProperty('--primary', config.primaryColor);
     }
   }, []);
 
@@ -95,6 +107,7 @@ export const HotelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   React.useEffect(() => {
     if (currentHotel.primaryColor) {
       document.documentElement.style.setProperty('--primary-accent', currentHotel.primaryColor);
+      document.documentElement.style.setProperty('--primary', currentHotel.primaryColor);
     }
   }, [currentHotel.primaryColor]);
 

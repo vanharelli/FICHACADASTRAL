@@ -5,7 +5,6 @@ import { Lock, Save, X, Palette } from 'lucide-react';
 import { translations, Language } from './translations';
 import { useHotel } from './HotelContext';
 import { SettingsModal } from './SettingsOverlay';
-import { hotelConfig } from './hotel_config';
 
 // --- Types & Interfaces ---
 interface FormData {
@@ -35,20 +34,14 @@ const ALPHA_GOLD = 'var(--primary-accent)';
 
 const CheckInScreen: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const { currentHotel: contextHotel, isLoading: contextLoading, updateHotelConfig, loadHotel } = useHotel();
+  const { currentHotel, isLoading, updateHotelConfig, loadHotel } = useHotel();
   
-  // Logic to select the hotel data from hotel_config.ts
-  const currentHotel = hotelConfig[slug || 'default'] || hotelConfig['default'];
-
-  // Sync with context if needed, but for now we rely on the static config for initial render
-  // Ideally, we should update the context so other components (like SettingsOverlay) are in sync
+  // Sync with context
   useEffect(() => {
     if (slug) {
       loadHotel(slug);
     }
   }, [slug, loadHotel]);
-
-  const isLoading = false; // Override loading since we have static config immediately
 
   const [showSettings, setShowSettings] = useState(false);
   const [showColorPicker, setShowColorPicker] = useState(false);
@@ -85,16 +78,17 @@ const CheckInScreen: React.FC = () => {
       const createdAt = currentHotel.createdAt ? new Date(currentHotel.createdAt) : new Date(); 
       const now = new Date();
       const diff = now.getTime() - createdAt.getTime();
-      const limit = 60 * 60 * 1000; // 60 minutes in ms
+      const limit = 24 * 60 * 60 * 1000; // 24 hours in ms
 
       if (diff > limit) {
         setIsExpired(true);
-        setTrialTimeLeft('00:00');
+        setTrialTimeLeft('00:00:00');
       } else {
         const remaining = limit - diff;
-        const minutes = Math.floor(remaining / 60000);
-        const seconds = Math.floor((remaining % 60000) / 1000);
-        setTrialTimeLeft(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+        const hours = Math.floor(remaining / (1000 * 60 * 60));
+        const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+        setTrialTimeLeft(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
         setIsExpired(false);
       }
     };

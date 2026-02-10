@@ -70,8 +70,8 @@ export const translations = {
     waYes: "SIM",
 
     // Admin Dashboard
-    adminTitle: "CONFIGURAÇÕES DO HOTEL",
-    adminHotelId: "IDENTIFICADOR DO HOTEL",
+    adminTitle: "CONFIGURAÇÕES",
+    adminHotelId: "IDENTIFICADOR (SLUG URL)",
     adminDisplayTitle: "TÍTULO DE EXIBIÇÃO",
     adminSubtitle: "SUBTÍTULO",
     adminLogoUrl: "URL DA LOGO",
@@ -87,7 +87,7 @@ export const translations = {
     adminLicenseKey: "CHAVE DE LICENÇA",
     adminColorPicker: "PAINEL DE CROMATOGRAFIA DE ELITE",
     adminFixColor: "FIXAR COR",
-    trialMode: "MODO DE DEGUSTAÇÃO TECNOLÓGICA",
+    trialMode: "TEMPO DE DEMONSTRAÇÃO",
     trialExpired: "Acesso de Demonstração Concluído. Solicite a Licença Vitalícia.",
     legalTerm: "Concordo que esta interface é uma ferramenta facilitadora de envio. Reconheço que a Marketelli não possui vínculo governamental e não armazena meus dados.",
     footerStateless: "Tecnologia Stateless (Sem Armazenamento). A responsabilidade pelo envio à FNRH (Lei 11.771/2008) é exclusiva do Estabelecimento. Suporte: atendimento@marketelli.com"
