@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { HotelProvider } from './HotelContext';
-import CheckInScreen from './CheckInScreen';
-import TermsScreen from './TermsScreen';
+import { HotelProvider } from './context/HotelContext';
+import CheckInScreen from './screens/CheckInScreen';
+import TermsScreen from './screens/TermsScreen';
 
 const App: React.FC = () => {
   return (

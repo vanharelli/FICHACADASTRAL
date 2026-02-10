@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useHotel } from './HotelContext';
+import { useHotel } from '../context/HotelContext';
 import { X, Save, Settings, Lock, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { translations, Language } from './translations';
+import { translations, Language } from '../data/translations';
 
 interface SettingsModalProps {
   isOpen: boolean;

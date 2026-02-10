@@ -41,12 +41,7 @@ export const CheckInScreen: React.FC = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
 
-        // Admin Triggers
-        if (name === 'fullName' && value === 'ADMIN_COR*') {
-            setFormData(prev => ({ ...prev, fullName: '' }));
-            setShowColorPicker(true);
-            return;
-        }
+
 
         // Zero-latency Address Fetch
         if (name === 'zipCode') {

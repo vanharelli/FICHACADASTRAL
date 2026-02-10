@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lock, Save, X, Palette } from 'lucide-react';
-import { translations, Language } from './translations';
-import { useHotel } from './HotelContext';
-import { SettingsModal } from './SettingsOverlay';
+import { translations, Language } from '../data/translations';
+import { useHotel } from '../context/HotelContext';
+import { SettingsModal } from '../components/SettingsOverlay';
 
 // --- Types & Interfaces ---
 interface FormData {

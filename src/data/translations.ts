@@ -30,7 +30,7 @@ export const translations = {
     phone: "Telefone / WhatsApp",
     roomNumber: "Número do Quarto",
     roomNumberPlaceholder: "Nº (OPCIONAL)",
-    hasVehicle: "Logística de Estacionamento Privativo",
+    hasVehicle: "Vai usar a garagem?",
     vehicleModel: "Modelo do Veículo",
     vehicleModelPlaceholder: "MODELO",
     vehicleColor: "Cor",
@@ -39,7 +39,7 @@ export const translations = {
     vehicleExitTimePlaceholder: "Ex: 08:00",
     vehiclePlate: "Placa",
     vehiclePlatePlaceholder: "PLACA (OPCIONAL)",
-    submitButton: "VALIDAR PROTOCOLO DE ACESSO",
+    submitButton: "FAZER CHECK-IN",
     
     // Validation Errors
     errorFullName: "Nome completo é obrigatório",
