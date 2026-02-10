@@ -18,8 +18,8 @@ export const DEFAULT_HOTEL: HotelConfig = {
   name: 'Ficha Cadastral',
   subtitle: 'Alpha Plaza Hotel',
   whatsapp: '5561982062229',
-  themeColor: '#10B981', // Emerald/Green (Pillar 1 Theme)
-  primaryColor: '#10B981', // Emerald/Green (Pillar 1 Theme)
+  themeColor: '#D4AF37', // Gold (Standard)
+  primaryColor: '#D4AF37', // Gold (Standard)
   enableMultiLanguage: true,
   enableGarage: true,
   footerText: '© 2026 Alpha Plaza Hotel - Todos os direitos reservados'
