@@ -11,7 +11,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/:slug" element={<CheckInScreen />} />
           <Route path="/termos" element={<TermsScreen />} />
-          <Route path="/" element={<Navigate to="/demo-hotel" replace />} />
+          <Route path="/" element={<Navigate to="/alpha-plaza" replace />} />
         </Routes>
       </BrowserRouter>
     </HotelProvider>

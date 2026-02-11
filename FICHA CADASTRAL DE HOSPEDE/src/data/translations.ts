@@ -88,8 +88,6 @@ export const translations = {
     adminLicenseKey: "CHAVE DE LICENÇA",
     adminColorPicker: "PAINEL DE CROMATOGRAFIA DE ELITE",
     adminFixColor: "FIXAR COR",
-    trialMode: "TEMPO DE DEMONSTRAÇÃO",
-    trialExpired: "Acesso de Demonstração Concluído. Solicite a Licença Vitalícia.",
     legalTerm: "Estou ciente de que esta ferramenta serve apenas para facilitar o check-in. Reconheço que a CHECK-IN DIGITAL não possui vínculo governamental e que meus dados NÃO ficam salvos no sistema.",
     footerStateless: "FERRAMENTA EXCLUSIVA PARA GESTÃO DE CHECK-IN HOTELEIRO\n\nTecnologia Stateless & Zero-Knowledge. A responsabilidade pelo envio à FNRH (Lei 11.771/2008) compete administrativa e unicamente ao Estabelecimento.\n\nPOWERED BY MARKETELLI INTELLIGENCE",
   },
@@ -180,8 +178,6 @@ export const translations = {
     adminLicenseKey: "LICENSE KEY",
     adminColorPicker: "ELITE CHROMATOGRAPHY PANEL",
     adminFixColor: "FIX COLOR",
-    trialMode: "TECHNOLOGICAL TASTING MODE",
-    trialExpired: "Demo Access Completed. Request Lifetime License.",
     legalTerm: "I am aware that this tool serves only to facilitate check-in. I acknowledge that CHECK-IN DIGITAL has no government affiliation and that my data is NOT saved in the system.",
     footerStateless: "EXCLUSIVE TOOL FOR HOTEL CHECK-IN MANAGEMENT\n\nStateless & Zero-Knowledge Technology. The responsibility for FNRH submission (Law 11.771/2008) lies administratively and solely with the Establishment.\n\nPOWERED BY MARKETELLI INTELLIGENCE"
   },
@@ -272,8 +268,6 @@ export const translations = {
     adminLicenseKey: "CLAVE DE LICENCIA",
     adminColorPicker: "PANEL DE CROMATOGRAFÍA DE ÉLITE",
     adminFixColor: "FIJAR COLOR",
-    trialMode: "MODO DE DEGUSTACIÓN TECNOLÓGICA",
-    trialExpired: "Acceso de Demostración Completado. Solicite Licencia Vitalicia.",
     legalTerm: "Estoy consciente de que esta herramienta sirve solo para facilitar el check-in. Reconozco que CHECK-IN DIGITAL no tiene vínculo gubernamental y que mis datos NO se guardan en el sistema.",
     footerStateless: "HERRAMIENTA EXCLUSIVA PARA LA GESTIÓN DE CHECK-IN HOTELERO\n\nTecnología Stateless & Zero-Knowledge. La responsabilidad del envío a la FNRH (Ley 11.771/2008) compete administrativa y únicamente al Establecimiento.\n\nPOWERED BY MARKETELLI INTELLIGENCE"
   }

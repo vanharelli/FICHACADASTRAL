@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Lock, Save, X, Palette } from 'lucide-react';
+import { Save, X, Palette } from 'lucide-react';
 import { translations, Language } from '../data/translations';
 import { useHotel } from '../context/HotelContext';
 import { SettingsModal } from '../components/SettingsOverlay';
@@ -59,49 +59,6 @@ const CheckInScreen: React.FC = () => {
       setShowSettings(true);
     }
   }, []);
-
-  // --- Trial Logic ---
-  const [trialTimeLeft, setTrialTimeLeft] = useState<string>('');
-  const [isExpired, setIsExpired] = useState(false);
-
-  useEffect(() => {
-    if (!currentHotel || currentHotel.licenseKey) {
-      setTrialTimeLeft('');
-      setIsExpired(false);
-      return;
-    }
-
-    const checkTrial = () => {
-      // Use createdAt from config, or default to now if missing (should be set on creation/load)
-      // Note: If createdAt is missing on an existing hotel, it will start a fresh trial this session.
-      // Ideally backfill logic in HotelContext handles this.
-      const createdAt = currentHotel.createdAt ? new Date(currentHotel.createdAt) : new Date(); 
-      const now = new Date();
-      const diff = now.getTime() - createdAt.getTime();
-      const limit = 24 * 60 * 60 * 1000; // 24 hours in ms
-
-      if (diff > limit) {
-        setIsExpired(true);
-        setTrialTimeLeft('00:00:00');
-      } else {
-        const remaining = limit - diff;
-        const hours = Math.floor(remaining / (1000 * 60 * 60));
-        const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-        setTrialTimeLeft(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
-        setIsExpired(false);
-      }
-    };
-
-    checkTrial(); // Initial check
-    const interval = setInterval(checkTrial, 1000);
-
-    return () => clearInterval(interval);
-  }, [currentHotel]);
-
-  const handleExpiredRedirect = () => {
-      window.location.href = "https://wa.me/5561982062229?text=Quero%20ativar%20minha%20licen%C3%A7a%20vital%C3%ADcia%20do%20Ficha%20Cadastral";
-  };
 
   // --- State ---
   const [language, setLanguage] = useState<Language>(() => {
@@ -486,39 +443,6 @@ const CheckInScreen: React.FC = () => {
         )}
       </AnimatePresence>
       
-      {/* Trial Countdown */}
-      {trialTimeLeft && !isExpired && (
-        <div className="absolute top-0 left-0 w-full bg-red-900/50 text-red-200 text-xs font-bold tracking-widest text-center py-2 z-50 backdrop-blur-md border-b border-red-500/30 uppercase animate-pulse">
-           {t.trialMode}: {trialTimeLeft}
-        </div>
-      )}
-
-      {/* Expired Overlay */}
-      {isExpired && !showSettings && (
-        <div className="fixed inset-0 z-[60] bg-black/95 flex flex-col items-center justify-center p-8 text-center space-y-6 backdrop-blur-xl">
-           <motion.div 
-             initial={{ scale: 0 }}
-             animate={{ scale: 1 }}
-             className="w-24 h-24 rounded-full bg-red-500/10 flex items-center justify-center border border-red-500 shadow-[0_0_50px_rgba(239,68,68,0.5)]"
-           >
-              <Lock className="text-red-500" size={48} />
-           </motion.div>
-           <h2 className="text-2xl font-bold text-white max-w-md leading-relaxed">{t.trialExpired}</h2>
-           <button 
-             onClick={handleExpiredRedirect}
-             className="bg-[#25D366] text-black font-bold py-4 px-8 rounded-full hover:bg-[#128C7E] transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(37,211,102,0.4)] flex items-center gap-3"
-           >
-             <span className="text-xl">WhatsApp Marketelli</span>
-           </button>
-           <button 
-              onClick={() => setShowSettings(true)}
-              className="text-white/30 text-xs hover:text-white underline mt-8 uppercase tracking-widest"
-           >
-              {t.adminTitle}
-           </button>
-        </div>
-      )}
-
       {/* Ambient Glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[var(--primary-accent)]/10 rounded-full blur-[120px]" />

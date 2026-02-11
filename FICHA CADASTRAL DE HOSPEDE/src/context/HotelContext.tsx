@@ -53,11 +53,6 @@ export const HotelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             saveHotelToDB(hotel);
           }
 
-          // Backfill createdAt for existing hotels to start trial tracking
-          if (!hotel.createdAt) {
-            hotel.createdAt = new Date().toISOString();
-            saveHotelToDB(hotel);
-          }
           setCurrentHotel(hotel);
         } else if (id === 'alpha-plaza') {
           const defaultWithDate = {
@@ -66,17 +61,6 @@ export const HotelProvider: React.FC<{ children: React.ReactNode }> = ({ childre
           };
           setCurrentHotel(defaultWithDate);
           saveHotelToDB(defaultWithDate); // Seed default
-        } else if (id === 'demo-hotel') {
-          const demoConfig: HotelConfig = {
-            ...DEFAULT_HOTEL,
-            id: 'demo-hotel',
-            name: 'Demo Hotel',
-            subtitle: 'Demonstração do Sistema',
-            primaryColor: '#D4AF37', // Gold
-            createdAt: new Date().toISOString()
-          };
-          setCurrentHotel(demoConfig);
-          saveHotelToDB(demoConfig);
         } else {
           // Auto-create template for new IDs
           const newHotel: HotelConfig = {
