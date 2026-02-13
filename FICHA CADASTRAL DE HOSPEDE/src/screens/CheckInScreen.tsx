@@ -420,7 +420,7 @@ export const CheckInScreen: React.FC = () => {
                     </button>
 
                     <div className="mt-4">
-                        <LegalFooter themeColor="gold" />
+                        <LegalFooter />
                     </div>
                 </div>
             </div>

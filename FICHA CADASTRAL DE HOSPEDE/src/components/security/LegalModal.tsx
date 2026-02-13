@@ -173,7 +173,7 @@ export const LegalShield: React.FC<LegalShieldProps> = ({ isChecked, onChange, t
     );
 };
 
-export const LegalFooter: React.FC<{ themeColor?: 'emerald' | 'amethyst' | 'gold' }> = ({ themeColor = 'gold' }) => {
+export const LegalFooter: React.FC = () => {
     return (
         <div className="mt-8 text-center opacity-60 hover:opacity-100 transition-opacity duration-300 relative z-10 px-8">
             <p className="text-[10px] text-white uppercase tracking-[0.2em] font-bold">
