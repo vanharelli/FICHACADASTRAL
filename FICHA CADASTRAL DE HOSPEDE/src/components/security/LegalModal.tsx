@@ -117,23 +117,12 @@ export const PrivacyLink: React.FC = () => {
 interface LegalShieldProps {
     isChecked: boolean;
     onChange: (checked: boolean) => void;
-    themeColor?: 'emerald' | 'amethyst' | 'gold';
 }
 
-export const LegalShield: React.FC<LegalShieldProps> = ({ isChecked, onChange, themeColor = 'gold' }) => {
-    const themeStyles = {
-        emerald: {
-            check: 'checked:bg-emerald-500 checked:border-emerald-500 focus:ring-emerald-500/30',
-        },
-        amethyst: {
-            check: 'checked:bg-violet-500 checked:border-violet-500 focus:ring-violet-500/30',
-        },
-        gold: {
-            check: 'checked:bg-gold-500 checked:border-gold-500 focus:ring-gold-500/30',
-        }
+export const LegalShield: React.FC<LegalShieldProps> = ({ isChecked, onChange }) => {
+    const theme = {
+        check: 'checked:bg-gold-500 checked:border-gold-500 focus:ring-gold-500/30',
     };
-
-    const theme = themeStyles[themeColor];
 
     return (
         <div className="flex items-center gap-4 p-5 bg-white/5 rounded-xl border border-white/10 mt-8 transition-colors hover:bg-white/[0.07]">

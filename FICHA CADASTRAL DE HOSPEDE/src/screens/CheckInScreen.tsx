@@ -401,7 +401,6 @@ export const CheckInScreen: React.FC = () => {
                     <LegalShield 
                         isChecked={isLegalChecked}
                         onChange={() => setIsLegalChecked(!isLegalChecked)}
-                        themeColor="gold"
                     />
                     
                     <PrivacyLink />
